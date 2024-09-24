@@ -15,7 +15,7 @@ const metadata = {
         validate: isString  // this button only supports string now
     },
     BUY_NOW_LARGE: {
-        href: "#",
+        href: "https://www.amazon.com/-/es/Scotch-Cinta-blanco-T-120-est%C3%A1ndar/dp/B008C7Z54Y",
         style: "buy-cta",
         defaultText: "BUY NOW",
         validate: isString  // this button only supports string now

@@ -1,4 +1,4 @@
-import Buttons from "./Buttons.jsx";
+import Buttons from "./Button.jsx";
 
 
 function NavBar() {
