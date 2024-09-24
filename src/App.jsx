@@ -1,4 +1,5 @@
 import './App.css'
+import NavBar from "./components/NavBar.jsx";
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -6,11 +7,7 @@ function App() {
   return (
       <>
           <div className="scotch-container">
-              <nav>
-                  <a href="#">CONTACT</a>
-                  <a href="#">ABOUT</a>
-                  <a href="#" className="buy">BUY NOW</a>
-              </nav>
+              <NavBar />
               <div className="main-container">
                   <div className="text-sphere-container">
                       <div className="text-container">
