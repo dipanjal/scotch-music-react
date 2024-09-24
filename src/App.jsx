@@ -1,15 +1,11 @@
 import './App.css'
-import NavBar from "./components/core/NavBar.jsx";
-import MainContainer from "./components/MainContainer.jsx";
+import ScotchContainer from "./components/ScotchContainer.jsx";
 
 
 function App() {
   return (
       <>
-          <div className="scotch-container">
-              <NavBar />
-              <MainContainer />
-          </div>
+          <ScotchContainer />
       </>
   )
 }
