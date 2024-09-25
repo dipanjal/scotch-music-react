@@ -1,19 +1,24 @@
+import {useRef} from "react";
+
 import NavBar from "./core/NavBar.jsx";
 import MainContainer from "./MainContainer.jsx";
 import AudioPlayer from "./core/AudioPlayer.jsx";
 
-function playMusic() {
-    console.log("Play Music")
-}
-
-function pauseMusic() {
-    console.log("Pause Music")
-}
-
-
-
-
 function ScotchContainer(prop) {
+    const audioRef = useRef(null); // Create a ref for the audio element
+
+    const playMusic = () => {
+        if (audioRef.current) {
+            audioRef.current.play().catch( e => console.log(e))
+        }
+    }
+
+    const pauseMusic = () => {
+        if (audioRef.current) {
+            audioRef.current.pause()
+        }
+    }
+
     return (
         <div className="scotch-container"
              onMouseEnter={playMusic}
@@ -21,7 +26,7 @@ function ScotchContainer(prop) {
         >
             <NavBar/>
             <MainContainer/>
-            <AudioPlayer />
+            <AudioPlayer ref={audioRef} />
             {prop.children && prop.children}
         </div>
     )
