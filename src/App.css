@@ -249,3 +249,15 @@ a:hover:not(.buy, .buy-cta, .learn) {
     opacity:100%;
   }
 }
+
+.audio-container {
+    width: 100%; /* Full width for the audio */
+    height: 0;   /* Hide the video part */
+    border: none;
+}
+
+.audio-container-hidden {
+    width: 0; /* Full width for the audio */
+    height: 0;   /* Hide the video part */
+    visibility: hidden;
+}
