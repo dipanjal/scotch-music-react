@@ -1,11 +1,11 @@
 import './App.css'
-import ScotchContainer from "./components/ScotchContainer.jsx";
+import ScotchContainerWrapper from './components/ScotchContainerWrapper.jsx';
 
 
 function App() {
   return (
       <>
-          <ScotchContainer />
+          <ScotchContainerWrapper />
       </>
   )
 }
