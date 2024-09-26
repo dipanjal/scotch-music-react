@@ -21,4 +21,7 @@ commit-msg-hook-enable:
 commit-msg-hook-disable:
 	./scripts/disable_commit_msg_hook.sh
 
-.PHONY: commit-msg-hook-enable commit-msg-hook-disable check_lint
+hook-status:
+	./scripts/hook_status.sh
+
+.PHONY: commit-msg-hook-enable commit-msg-hook-disable check_lint hook-status
