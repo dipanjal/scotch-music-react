@@ -251,8 +251,8 @@ a:hover:not(.buy, .buy-cta, .learn) {
 }
 
 .audio-container-hidden {
-    width: 0; /* Full width for the audio */
-    height: 0;   /* Hide the video part */
+    width: 0; /* Hide width for the audio player */
+    height: 0;   /* Hide height for the audio player */
     visibility: hidden;
 }
 
