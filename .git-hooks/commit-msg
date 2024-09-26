@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# This script is used to validate the commit message format
+# It checks if the commit message starts with a ticket number or 'WIP'
+
+# Function to validate the commit message against a regex
+validate_commit_message() {
+    REGEX='^(WIP|[A-Z]{2,4}-\d+): .+$'
+    if ! echo "$MESSAGE" | grep -qE "$REGEX"; then
+        echo "Error: commit message must start with a Ticket Number (e.g., ABC-123: <Commit Message>) or WIP <Commit Message>"
+        exit 1
+    fi
+}
+
+# Function to ensure the commit message does not end with a full stop
+check_commit_message_end() {
+    if echo "$MESSAGE" | grep -qE "\.$"; then
+        echo "ERROR: Commit message must not end with a full stop (.)"
+        exit 1
+    fi
+}
+
+# Function to run lint checks using make
+run_lint_checks() {
+    echo "Running make check_lint..."
+    /usr/bin/make -s check_lint
+    MAKE_STATUS=$?
+
+    if [ $MAKE_STATUS -ne 0 ]; then
+        echo "make check_lint failed with status $MAKE_STATUS."
+        exit $MAKE_STATUS
+    fi
+}
+
+# Main execution flow
+main() {
+    # Read the commit message from the file passed as the first argument
+    MESSAGE=$(cat "$1")
+
+    # Validate the commit message format
+    validate_commit_message
+
+    # Check if the commit message ends with a full stop
+    check_commit_message_end
+
+    # Run lint checks
+    run_lint_checks
+
+    exit 0
+}
+
+# Invoke the main function with all script arguments
+main "$@"
