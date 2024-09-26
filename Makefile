@@ -1,4 +1,5 @@
 # Define a function to run scripts with fallback paths
+# Will be used when git-hooks execute make command from .git/hooks directory
 define run_script
 	if [ -f "./scripts/$(1).sh" ]; then \
 		./scripts/$(1).sh; \
@@ -18,6 +19,6 @@ enable_commit_msg_hook:
 	./scripts/enable_commit_msg_hook.sh
 
 disable_commit_msg_hook:
-	rm -f .git/hooks/commit-msg
+	./scripts/disable_commit_msg_hook.sh
 
 .PHONY: enable_commit_msg_hook disable_commit_msg_hook check_lint
