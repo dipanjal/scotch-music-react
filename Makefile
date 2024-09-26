@@ -12,13 +12,13 @@ define run_script
 endef
 
 # Targets using the run_script function
-check_lint:
+check-lint:
 	$(call run_script,check_lint)
 
-enable_commit_msg_hook:
+commit-msg-hook-enable:
 	./scripts/enable_commit_msg_hook.sh
 
-disable_commit_msg_hook:
+commit-msg-hook-disable:
 	./scripts/disable_commit_msg_hook.sh
 
-.PHONY: enable_commit_msg_hook disable_commit_msg_hook check_lint
+.PHONY: commit-msg-hook-enable commit-msg-hook-disable check_lint

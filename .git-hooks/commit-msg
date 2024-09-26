@@ -23,7 +23,7 @@ check_commit_message_end() {
 # Function to run lint checks using make
 run_lint_checks() {
     echo "Running make check_lint..."
-    /usr/bin/make -s check_lint
+    /usr/bin/make -s check-lint
     MAKE_STATUS=$?
 
     if [ $MAKE_STATUS -ne 0 ]; then
