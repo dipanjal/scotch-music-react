@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { getStaticFileUri } from "../../utils/helper";
 
 const audioOnPause = () => {
     console.log("Music is Paused")
@@ -29,7 +30,7 @@ const AudioPlayer = forwardRef(({ loop = true }, ref) => {
                onEnded={(e) => audioOnEnded(e, loop)}
         >
             <source
-                src="/music.mp3"
+                src={getStaticFileUri("music.mp3")}
                 type="audio/mp3"
             />
             Your browser does not support the audio element.

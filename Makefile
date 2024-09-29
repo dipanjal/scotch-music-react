@@ -24,4 +24,15 @@ commit-msg-hook-disable:
 hook-status:
 	./scripts/hook_status.sh
 
-.PHONY: commit-msg-hook-enable commit-msg-hook-disable check_lint hook-status
+clean:
+	rm -rf dist
+
+install:
+	rm -rf node_modules
+	yarn
+
+preview: clean install
+	yarn build
+	yarn preview
+
+.PHONY: commit-msg-hook-enable commit-msg-hook-disable check_lint hook-status clean install preview
