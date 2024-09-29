@@ -1,7 +1,7 @@
 import Buttons from "./Button.jsx";
 
 
-function NavBar({ children }) {
+export default function NavBar({ children }) {
     return (
         <nav>
             <a href="#">CONTACT</a>
@@ -11,4 +11,3 @@ function NavBar({ children }) {
         </nav>
     )
 }
-export default NavBar
