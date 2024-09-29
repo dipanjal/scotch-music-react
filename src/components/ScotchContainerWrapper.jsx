@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ScotchContainer from "./ScotchContainer.jsx";
 import AudioContainer from "./core/AudioContainer.jsx";
 
-function ScotchContainerWrapper({ children }) {
+export default function ScotchContainerWrapper({ children }) {
     const [{isBlurred, action}, setIsBlurred] = useState({
         isBlurred: true,
         action: "pause"
@@ -37,10 +37,8 @@ function ScotchContainerWrapper({ children }) {
             onMouseLeave={pauseMusic}
         >
             <ScotchContainer />
-            <AudioContainer isPlayable={!isBlurred} action={action} />
+            <AudioContainer action={action} />
             {children}
         </div>
     )
 }
-
-export default ScotchContainerWrapper

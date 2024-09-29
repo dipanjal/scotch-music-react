@@ -1,23 +1,20 @@
 import { useCallback, useEffect, useRef } from "react";
-
-// import NavBar from "./NavBar.jsx";
-// import MainContainer from "../MainContainer.jsx";
 import AudioPlayer from "./AudioPlayer.jsx";
 
-export default function AudioContainer({ isPlayable = false, action = "pause", children }) {
+export default function AudioContainer({ action = "pause" }) {
     const audioRef = useRef(null); // Create a ref for the audio element
 
     const playMusic = useCallback(() => {
-        if (isPlayable && audioRef.current) {
+        if (audioRef.current) {
             audioRef.current.play().catch(e => console.log(e));
         }
-    }, [isPlayable]);
+    }, []);
 
     const pauseMusic = useCallback(() => {
-        if (isPlayable && audioRef.current) {
+        if (audioRef.current) {
             audioRef.current.pause()
         }
-    }, [isPlayable]);
+    }, []);
 
     useEffect(() => {
         if (action === "play") {
@@ -31,7 +28,6 @@ export default function AudioContainer({ isPlayable = false, action = "pause", c
     return (
         <div className="audio-container">
             <AudioPlayer ref={audioRef} />
-            { children }
         </div>
     )
 }
